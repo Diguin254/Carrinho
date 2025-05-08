@@ -1,0 +1,108 @@
+.card-carrinho {
+  position: fixed;
+  right: 12px;
+  top: 0px;
+}
+
+.card-carrinho button {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  background-color: rgb(255, 128, 0);
+  border: none;
+  color: white;
+}
+
+
+
+
+.carrinhoAberto {
+  background-color: white;
+  width: 280px;
+  height: 88vh;
+  overflow-y: auto;
+  display: grid;
+  grid-template-rows: auto;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid rgb(255, 128, 0);
+}
+
+.carrinhoAberto img {
+  margin-top: 30px;
+  width: 70px;
+}
+
+.carrinhoAberto p {
+  color: rgb(255, 128, 0);
+}
+
+
+
+
+.topoCarrinho {
+  position: fixed;
+  display: flex;
+  align-items: first baseline;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: rgb(255, 128, 0);
+  width: 266px;
+  border-radius: 5px;
+  color: white;
+}
+
+.topoCarrinho button {
+  color: white;
+  transition: all 0.5ms ease;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+}
+
+.fechar:hover {
+  transform: scale(1.1);
+  border: 1px solid rgb(255, 128, 0);
+}
+
+
+
+.botaoAdcRemov {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.botaoAdcRemov button {
+  width: 50px;
+  height: 30px;
+  color: white;
+  transition: 5ms;
+}
+
+.botaoAdcRemov button:hover {
+  transform: scale(1.1);
+  border: 1px solid rgb(255, 128, 0);
+}
+
+
+
+
+
+.valorTotal {
+  position: fixed;
+  background-color: white;
+  color: rgb(255, 128, 0);
+  bottom: 0;
+  border: 1px solid rgb(255, 128, 0);
+  border-radius: 10px;
+  width: 280px;
+  height: 11vh;
+}
+
+.valorTotal h4,
+p {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}

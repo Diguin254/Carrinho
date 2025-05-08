@@ -1,0 +1,69 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+    padding: 10px;
+    bottom: 10px;
+}
+
+.produto {
+    font: 12px arial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    gap: 5px;
+    min-height: 300px;
+    border: 1px solid rgb(216, 216, 216);
+}
+
+
+
+
+.produto img {
+    width: 70%;
+}
+
+.produto p {
+    color: rgb(255, 128, 0);
+    font-size: larger;
+    margin-top: auto;
+}
+
+.produto button {
+    background-color: rgb(255, 128, 0);
+    color: white;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border-color: rgb(255, 128, 0);
+    transition: all 0.5ms ease;
+    width: 90%;
+}
+
+.produto button:hover {
+    transform: scale(1.1);
+    border: 1px solid rgb(255, 128, 0);
+}
+
+.sair {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.sair button {
+    color: white;
+    background-color: rgb(255, 128, 0);
+    width: 60px;
+    height: 40px;
+    border-radius: 10px;
+    border-color: transparent;
+    transition: all 0.5ms ease;
+    cursor: pointer;
+}
+
+.sair button:hover {
+    transform: scale(1.1);
+}
