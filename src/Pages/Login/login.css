@@ -1,0 +1,138 @@
+/* Container da tela de login */
+.containerLogin {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(255, 128, 0);
+}
+
+
+
+
+
+.telaPrincipalLogin {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    background-color: transparent;
+    width: 90vw;
+    height: 80vh;
+    max-width: 400px;
+    padding: 40px;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: 2px solid rgb(255, 128, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.05ms ease;
+    cursor: pointer;
+}
+
+.telaPrincipalLogin:hover {
+    transform: scale(1.05);
+    border: 2px solid rgb(255, 128, 0);
+}
+
+
+
+.usuario,
+.password {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+}
+
+
+
+
+.usuario input,
+.password input {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    box-sizing: border-box;
+    transition: all 0.5ms ease;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 128, 0);
+    color: rgb(255, 128, 0);
+}
+
+.usuario input:hover,
+.password input:hover {
+    transform: scale(1.05);
+    border: 3px solid rgb(255, 128, 0);
+    border-radius: 5px;
+}
+
+.usuario input:focus,
+.password input:focus {
+    border: 3px solid rgb(255, 128, 0);
+    border-radius: 5px;
+    outline: none;
+}
+
+.usuario label,
+.password label {
+    color: rgb(255, 128, 0);
+}
+
+
+
+
+
+.logarCadastrar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.logarCadastrar button {
+    color: white;
+    background-color: rgb(255, 128, 0);
+    width: 120px;
+    height: 50px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border-color: transparent;
+    transition: all 0.5ms ease;
+    cursor: pointer;
+}
+
+.logarCadastrar button:hover {
+    transform: scale(1.1);
+}
+
+.iconsLogin {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 30px;
+    padding-top: 5px;
+}
+
+.iconsLogin button {
+    color: white;
+    background-color: rgb(255, 128, 0);
+    border-radius: 10px;
+    width: 50px;
+    border-color: transparent;
+    transition: all 0.5ms ease;
+    cursor: pointer;
+}
+.iconsLogin button:hover {
+    transform: scale(1.1);
+}
+
+p {
+    color: white;
+}

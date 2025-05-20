@@ -1,0 +1,132 @@
+.containerCadastro {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(255, 128, 0);
+}
+
+.telaCadastro {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(255, 128, 0);
+    background-color: transparent;
+    width: 100%;
+    height: 95%;
+    max-width: 600px;
+    padding: 40px;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.05ms ease;
+    cursor: pointer;
+}
+.telaCadastro:hover {
+    transform: scale(1.05);
+    border: 2px solid rgb(255, 128, 0);
+}
+
+
+.telaUsuario {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 97%;
+    gap: 5px;
+}
+
+.telaUsuario label {
+    color: rgb(255, 128, 0);
+}
+
+.telaUsuario input {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    box-sizing: border-box;
+    transition: all 0.5ms ease;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 128, 0);
+    color: rgb(255, 128, 0);
+}
+
+.telaUsuario input:hover {
+    transform: scale(1.05);
+    border: 3px solid rgb(255, 128, 0);
+    border-radius: 5px;
+}
+
+.telaUsuario input:focus {
+    border: 3px solid rgb(255, 128, 0);
+    border-radius: 5px;
+    outline: none;
+}
+
+
+
+.termos,
+.manter {
+    display: flex;
+    align-items: center;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+}
+
+.termos input[type="checkbox"],
+.manter input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+.termos label,
+.manter label {
+    flex: 1;
+}
+
+.sexo {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
+    gap: 30px;
+    width: 80%;
+}
+
+.sexo input {
+    display: flex;
+    width: 20px;
+    height: 30px;
+    margin-left: 20px;
+}
+
+.botaoCadastro {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.botaoCadastro button {
+    color: white;
+    background-color: rgb(255, 128, 0);
+    width: 120px;
+    height: 50px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border-color: transparent;
+    transition: all 0.5ms ease;
+    cursor: pointer;
+}
+
+.botaoCadastro button:hover {
+    transform: scale(1.1);
+}
