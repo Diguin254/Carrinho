@@ -1,29 +1,25 @@
 import React from "react"
 
-export default function Carrinho({ visivel, itens, fecharCarrinho }) {
+export default function Carrinho({ visivel, itens, incrementarItem, decrementarItem, fecharCarrinho }) {
 
     if (!visivel) return null;
 
-    let total = 0;
-
-    for (let i = 0; i < itens.length; i++) {
-        total += itens[i].valor;
-    }
+    const total = itens.reduce((acc, item) => acc + item.valor * item.quantidade, 0);
 
     return (
         <div className="carrinhoAberto">
-            <div className="topoCarrinho">Seu carrinho tem {itens.length} itens
+            <div className="topoCarrinho">Seu carrinho tem {itens.reduce((acc, item) => acc + item.quantidade, 0)} itens
                 <button className="fechar" onClick={fecharCarrinho}>X</button>
             </div>
-            {itens?.map((item, index) => (
-                <div key={index} className="item">
+            {itens?.map(item => (
+                <div key={item.id} className="item">
                     <img src={item.imagem} alt={item.nome} />
                     <h3>{item.nome}</h3>
                     <div className="botaoAdcRemov">
-                        <p>R$ {item.valor.toFixed(2)}</p>
-                        <button>+</button>
-                        <p>0</p>
-                        <button>-</button>
+                        <p>R$ {(item.valor * item.quantidade).toFixed(2)}</p>
+                        <button onClick={() => incrementarItem(item.id)}>+</button>
+                        <p>{item.quantidade}</p>
+                        <button onClick={() => decrementarItem(item.id)}>-</button>
                     </div>
                 </div>
             ))}

@@ -1,61 +1,35 @@
-import { useState } from "react"
-import { FaCartShopping } from "react-icons/fa6";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
-import { AuthProvider, useAuth } from "./Privado.jsx"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router";
+import { AuthProvider } from "./Privado";
+import RequireAuth from "./RequireAuth";
 
-import Login from "../Pages/Login/login.jsx";
-import Cadastro from "../Pages/CriarLogin/cadastro.jsx"
-import TelaPrincipal from "../Pages/Produtos/telaPrincipal.jsx";
-import Carrinho from "../Pages/Produtos/Carrinho.jsx";
-
-import "./App.css";
+import DashBoard from "../Pages/TelaPrincipal/dashBoard";
+import Login from "../Pages/Login/login";
+import Cadastro from "../Pages/CriarLogin/cadastro";
+import TelaPrincipalProduto from "../Pages/Produtos/telaPrincipalProduto";
 
 export default function App() {
-  const [itemCarrinho, setItemCarrinho] = useState([]);
-  const [mostraCarrinho, setMostraCarrinho] = useState(false);
-
-  function abreCarrinho() {
-    setMostraCarrinho(!mostraCarrinho);
-  };
-
-  function adicionarAoCarrinho(item) {
-    setItemCarrinho((index) => [...index, item]);
-  };
-
   return (
-    <Router>
-      <AuthProvider>
-        <Routes>
-          <Route path="/" element={<Login />}></Route>
-          <Route path="/cadastro" element={<Cadastro />}></Route>
+    <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<DashBoard />}>
+              <Route index element={<div>Bem-vindo! Escolha uma opção.</div>} />
 
-          <Route path="/home" element={
-            <>
-              <RequireAuth>
-                <TelaPrincipal adicionarAoCarrinho={adicionarAoCarrinho} />
-                <div className="card-carrinho">
-                  {!mostraCarrinho && (
-                    <button onClick={abreCarrinho}>
-                      <FaCartShopping />
-                      <span>{itemCarrinho.length}</span>
-                    </button>
-                  )}
-                  <Carrinho visivel={mostraCarrinho} itens={itemCarrinho} fecharCarrinho={abreCarrinho} />
-                </div>
-              </RequireAuth>
-            </>}
-          ></Route>
-        </Routes>
-      </AuthProvider>
-    </Router>
+              <Route
+                path="produtos"
+                element={
+                  <RequireAuth>
+                    <TelaPrincipalProduto />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+
+            <Route path="login" element={<Login />} />
+            <Route path="cadastro" element={<Cadastro />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </AuthProvider>
+    </BrowserRouter>
   );
-}
-
-function RequireAuth({ children }) {
-  const { autenticado } = useAuth()
-  return autenticado ? (
-    children
-  ) : (
-    <Navigate to="/" replace />
-  )
 }

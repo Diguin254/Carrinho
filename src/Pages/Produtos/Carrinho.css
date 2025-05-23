@@ -1,4 +1,4 @@
-/* .card-carrinho {
+.card-carrinho {
   position: fixed;
   right: 12px;
   top: 0px;
@@ -106,4 +106,4 @@ p {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-} */
+}

@@ -1,6 +1,5 @@
 import { useState } from "react"
 import { useAuth } from "../../Componentes/Privado"
-import { useNavigate } from "react-router"
 
 import fundo from "../Login/black2.jpg"
 import "./cadastro.css";
@@ -16,19 +15,18 @@ export default function Cadastro() {
     const [termo, setTermo] = useState(false);
     const [manter, setManter] = useState(false);
 
-    const { login } = useAuth();
-    const navigate = useNavigate();
+    const { register } = useAuth();
 
-    const handleHome = () => {
+    const handleCadastro = () => {
         if (nome && nomeUser && cpf && email && senha && sexo && termo && dataNasc) {
-            login()
+            register(nomeUser, senha)
         } else {
-            alert("Dados inválidos. Tente novamente!");
+            alert("Preencha todos os campos obrigatórios");
         }
     }
 
     const handleLoginRedireciona = () => {
-        navigate("/")
+        window.location.href = '/login';
     }
 
     return (
@@ -38,16 +36,22 @@ export default function Cadastro() {
                 <div className="telaUsuario">
                     <label htmlFor="Nome">Nome Completo* </label>
                     <input type="text" id="Nome" value={nome} onChange={(e) => setNome(e.target.value)} />
+                    
                     <label htmlFor="NomeDeUsuario">Nome de usuário*</label>
                     <input type="text" id="NomeDeUsuario" value={nomeUser} onChange={(e) => setNomeUser(e.target.value)} />
+                    
                     <label htmlFor="Cpf">CPF*</label>
                     <input type="text" id="Cpf" placeholder="XXX.XXX.XXX-XX" value={cpf} onChange={(e) => setCpf(e.target.value)} />
+                    
                     <label htmlFor="Nasc">Data de Nascimento*</label>
                     <input type="date" id="Nasc" placeholder="XX/XX/XXXX" value={dataNasc} onChange={(e) => setDataNasc(e.target.value)} />
+                    
                     <label htmlFor="Email">Email*</label>
                     <input type="email" id="Email" placeholder="example@gmail.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+                    
                     <label htmlFor="Senha">Senha* </label>
                     <input type="password" id="Senha" placeholder="********" value={senha} onChange={(e) => setSenha(e.target.value)} />
+                    
                     <label htmlFor="" className="lbSexo">Sexo*</label>
                     <div className="sexo">
                         <div className="masc"><label htmlFor="sexoMasculino"><input type="radio" name="sexo" id="masculino" value="masculino" checked={sexo == "masculino"} onChange={(e) => setSexo(e.target.value)} />Masculino</label></div>
@@ -64,7 +68,7 @@ export default function Cadastro() {
                     </div>
                 </div>
                 <div className="botaoCadastro">
-                    <button onClick={handleHome}>Cadastro</button>
+                    <button onClick={handleCadastro}>Cadastrar</button>
                     <button onClick={handleLoginRedireciona}>Login</button>
                 </div>
             </div>

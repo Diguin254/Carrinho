@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../../Componentes/Privado"
-import { useNavigate } from "react-router"
+import { useNavigate, useLocation } from "react-router"
 import fundo from "../Login/black2.jpg";
 import "./login.css";
 
@@ -12,14 +12,20 @@ export default function Login() {
     const [usuario, setUsuario] = useState("");
     const [senha, setSenha] = useState("");
     const { login } = useAuth();
-
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const handleLogin = () => {
-        if (usuario && senha) {
-            login()
+        if (!usuario || !senha) {
+            alert("Preencha usuário e senha");
+            return;
+        }
+        const ok = login(usuario, senha);
+        if (ok) {
+            navigate(from, { replace: true });
         } else {
-            alert("Usuário e senha inválidos");
+            alert("Usuário ou senha incorretos");
         }
     }
 
