@@ -1,0 +1,21 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-produtos-view{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 242.4px;
+    background-color: rgb(255, 128, 0);
+    width: 100vw;
+    height: 100vh;
+}
+
+.container-produtos-view h1, p{
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: black;
+}

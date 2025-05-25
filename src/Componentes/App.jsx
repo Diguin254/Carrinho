@@ -1,35 +1,65 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router";
-import { AuthProvider } from "./Privado";
+import { AuthProvider } from "./AuthProvider";
 import RequireAuth from "./RequireAuth";
 
-import DashBoard from "../Pages/TelaPrincipal/dashBoard";
+import DashBoard from "../Pages/TelaPrincipalDashBoard/dashBoard";
 import Login from "../Pages/Login/login";
 import Cadastro from "../Pages/CriarLogin/cadastro";
-import TelaPrincipalProduto from "../Pages/Produtos/telaPrincipalProduto";
+import TelaPrincipalProduto from "../Pages/LerProdutos/telaPrincipalProduto";
+import ProdutosView from "../Pages/TelaPrincipalDashBoard/produtosView";
+import AtualizarProdutos from "../Pages/AtualizarProdutos/atualizarProdutos";
+import RemoverProdutos from "../Pages/RemoverProdutos/removerProdutos";
+import CriarProdutos from "../Pages/CriarProdutos/criarProdutos";
 
 export default function App() {
   return (
     <BrowserRouter>
-        <AuthProvider>
-          <Routes>
-            <Route path="/" element={<DashBoard />}>
-              <Route index element={<div>Bem-vindo! Escolha uma opção.</div>} />
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Navigate to="/dashboard" replace />}/>
+          <Route path="/dashboard" element={<DashBoard />}>
+            <Route path="produtosView" element={<ProdutosView />} />
 
-              <Route
-                path="produtos"
-                element={
-                  <RequireAuth>
-                    <TelaPrincipalProduto />
-                  </RequireAuth>
-                }
-              />
-            </Route>
+            <Route
+              path="produtos"
+              element={
+                <RequireAuth>
+                  <TelaPrincipalProduto />
+                </RequireAuth>
+              } />
 
-            <Route path="login" element={<Login />} />
-            <Route path="cadastro" element={<Cadastro />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </AuthProvider>
+            <Route
+              path="atualizarProdutos"
+              element={
+                <RequireAuth>
+                  <AtualizarProdutos />
+                </RequireAuth>
+              } />
+
+            <Route
+              path="deletarProdutos"
+              element={
+                <RequireAuth>
+                  <RemoverProdutos />
+                </RequireAuth>
+              } />
+
+            <Route
+              path="criarProdutos"
+              element={
+                <RequireAuth>
+                  <CriarProdutos />
+                </RequireAuth>
+              } />
+
+          </Route>
+
+
+          <Route path="login" element={<Login />} />
+          <Route path="cadastro" element={<Cadastro />} />
+          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

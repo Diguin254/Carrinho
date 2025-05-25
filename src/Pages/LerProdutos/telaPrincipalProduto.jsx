@@ -8,8 +8,6 @@ import "./telaPrincipalProduto.css";
 import "./Carrinho.css"
 
 export default function TelaPrincipalProduto() {
-  const sair = useNavigate();
-  const handleSair = () => sair("/");
 
   const [itemCarrinho, setItemCarrinho] = useState([]);
   const [mostraCarrinho, setMostraCarrinho] = useState(false);
@@ -46,13 +44,9 @@ export default function TelaPrincipalProduto() {
           <img src={item.imagem} alt={item.nome} />
           <h3>{item.nome}</h3>
           <p>R$ {item.valor.toFixed(2)}</p>
-          <button onClick={() => adicionarAoCarrinho(item)}>Comprar</button>
+          <button onClick={() => adicionarAoCarrinho(item)}>Adicionar ao carrinho</button>
         </div>
       ))}
-
-      <div className="sair">
-        <button onClick={handleSair}>Sair</button>
-      </div>
 
       <div className="card-carrinho">
         {!mostraCarrinho && (

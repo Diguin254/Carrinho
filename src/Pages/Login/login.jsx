@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "../../Componentes/Privado"
+import { useAuth } from "../../Componentes/AuthProvider"
 import { useNavigate, useLocation } from "react-router"
 import fundo from "../Login/black2.jpg";
 import "./login.css";

@@ -1,4 +1,5 @@
 .container {
+    margin-left: 250px;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     text-align: center;
@@ -39,6 +40,7 @@
     border-color: rgb(255, 128, 0);
     transition: all 0.5ms ease;
     width: 90%;
+    cursor: pointer;
 }
 
 .produto button:hover {

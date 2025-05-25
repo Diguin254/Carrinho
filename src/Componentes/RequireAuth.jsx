@@ -1,4 +1,4 @@
-import { useAuth } from "./Privado";
+import { useAuth } from "./AuthProvider";
 import { Navigate, useLocation } from "react-router";
 
 export default function RequireAuth({ children }) {

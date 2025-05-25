@@ -1,11 +1,22 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-    const [autenticado, setAutenticado] = useState(false);
     const navigate = useNavigate();
+
+    const [autenticado, setAutenticado] = useState(() => {
+        return localStorage.getItem('autenticado') === 'true';
+    });
+
+    useEffect(() => {
+        if (autenticado) {
+            localStorage.setItem('autenticado', 'true');
+        } else {
+            localStorage.removeItem('autenticado');
+        }
+    }, [autenticado]);
 
     function register(username, password) {
         localStorage.setItem('user_' + username, password)
