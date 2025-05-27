@@ -1,15 +1,44 @@
-html, body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.container-criar-produtos{
+.form-criarproduto {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-left: 242.4px;
+}
+
+
+.form-criarproduto input {
+    width: 100%;
+    height: 40px;
+    padding: 5px;
+    box-sizing: border-box;
+    transition: all 0.5ms ease;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 128, 0);
+    color: rgb(255, 128, 0);
+}
+
+.form-criarproduto input:hover {
+    transform: scale(1.05);
+    border: 3px solid red;
+    border-radius: 5px;
+}
+
+.form-criarproduto input:focus {
+    border: 3px solid red;
+    border-radius: 5px;
+    outline: none;
+}
+
+.form-criarproduto button {
+    color: white;
     background-color: rgb(255, 128, 0);
-    width: 100vw;
-    height: 100vh;
+    width: 220px;
+    height: 50px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border-color: transparent;
+    transition: all 0.5ms ease;
+    cursor: pointer;
+}
+
+.form-criarproduto button:hover {
+    transform: scale(1.1);
 }

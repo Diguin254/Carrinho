@@ -1,11 +1,11 @@
 .container-dashboard {
     display: flex;
-    height: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .sidebar{
     position: fixed;
-    height: 100%;
     top: 0;
     left: 0;
     width: 250px;
@@ -13,6 +13,18 @@
     display: flex;
     flex-direction: column;
     background-color: black;
+}
+
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px);
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #444;
 }
 
 .sidebar-header{

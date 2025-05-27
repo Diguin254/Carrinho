@@ -1,15 +1,35 @@
-html, body{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.title{
+    color: black;
+    display: flex;
+    justify-content: center;
 }
 
-.container-remover-produtos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 242.4px;
+.lista-remover {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    text-align: center;
+    padding: 10px;
+    bottom: 10px;
+    gap: 5px;
+    min-height: 300px;
+    border: 1px solid rgb(216, 216, 216);
+}
+.item-remover img {
+    width: 70%;
+}
+.item-remover button {
     background-color: rgb(255, 128, 0);
-    width: 100vw;
-    height: 100vh;
+    color: white;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border-color: rgb(255, 128, 0);
+    transition: all 0.5ms ease;
+    width: 90%;
+    cursor: pointer;
+}
+
+.item-remover button:hover {
+    transform: scale(1.1);
+    border: 1px solid rgb(255, 128, 0);
 }

@@ -6,7 +6,7 @@ export default function DashBoard() {
   const navigate = useNavigate();
   const { autenticado, logout } = useAuth();
 
-  const handleProdutos = () => {
+  const produtos = () => {
     if (autenticado) {
       navigate("produtos");
     } else {
@@ -22,7 +22,7 @@ export default function DashBoard() {
           <h1>Painel</h1>
         </div>
         <div className="sidebar-buttons">
-          <button onClick={handleProdutos}>Ver Produtos</button>
+          <button onClick={produtos}>Ver Produtos</button>
           <button onClick={() => navigate("atualizarProdutos")}>Atualizar Produtos</button>
           <button onClick={() => navigate("deletarProdutos")}>Deletar Produtos</button>
           <button onClick={() => navigate("criarProdutos")}>Criar Produtos</button>
@@ -32,7 +32,9 @@ export default function DashBoard() {
           )}
         </div>
       </div>
-      <Outlet />
+      <div className="main-content">
+        <Outlet />
+      </div>
     </div>
   );
 }

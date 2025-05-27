@@ -16,7 +16,7 @@ export default function Login() {
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
-    const handleLogin = () => {
+    const logar = () => {
         if (!usuario || !senha) {
             alert("Preencha usuário e senha");
             return;
@@ -29,7 +29,7 @@ export default function Login() {
         }
     }
 
-    const handleCadastro = () => navigate("/cadastro")
+    const cadastrar = () => navigate("/cadastro")
 
     return (
         <div className="containerLogin">
@@ -44,8 +44,8 @@ export default function Login() {
                     <input type="password" id="Senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
                 </div>
                 <div className="logarCadastrar">
-                    <button onClick={handleLogin}>Login</button>
-                    <button onClick={handleCadastro}>Cadastre-se</button>
+                    <button onClick={logar}>Login</button>
+                    <button onClick={cadastrar}>Cadastre-se</button>
                 </div>
                 <p>or</p>
                 <div className="iconsLogin">

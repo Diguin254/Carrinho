@@ -5,7 +5,6 @@ const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
     const navigate = useNavigate();
-
     const [autenticado, setAutenticado] = useState(() => {
         return localStorage.getItem('autenticado') === 'true';
     });

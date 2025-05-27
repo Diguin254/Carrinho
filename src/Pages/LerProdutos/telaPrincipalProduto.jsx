@@ -1,50 +1,31 @@
-import { useState } from "react";
-import { useNavigate } from "react-router";
+import {useContext, useState, useEffect } from "react";
+import { DataContext } from "../../Componentes/DataContext"
+import api from "../../Componentes/API/api";
 import { FaCartShopping } from "react-icons/fa6";
-import Carrinho from "./Carrinho";
-import { produtos } from "./produtos";
+import Carrinho from "../Produtos/Carrinho";
 
 import "./telaPrincipalProduto.css";
-import "./Carrinho.css"
+import "../Produtos/Carrinho.css"
 
 export default function TelaPrincipalProduto() {
-
-  const [itemCarrinho, setItemCarrinho] = useState([]);
+  const [produtos, setProdutos] = useState([]);
+  const { carrinho: itemCarrinho, adicionarAoCarrinho, incrementarItem, decrementarItem } = useContext(DataContext);
   const [mostraCarrinho, setMostraCarrinho] = useState(false);
 
+  useEffect(() => {
+    api.get('/produtos/ler').then(({ data }) => setProdutos(data)).catch(err => console.error(err));
+  });
+
   const abreCarrinho = () => setMostraCarrinho(!mostraCarrinho);
-
-  const adicionarAoCarrinho = (produto) => {
-    setItemCarrinho((index) => {
-      const existe = index.find((item) => item.id === produto.id);
-      if (existe) {
-        return index.map((item) =>
-          item.id === produto.id ? { ...item, quantidade: item.quantidade + 1 } : item );
-      } else {
-        return [...index, { ...produto, quantidade: 1 }];
-      }
-    });
-  };
-
-  const incrementarItem = (produtoId) => {
-    setItemCarrinho((index) => index.map((item) => item.id === produtoId ? { ...item, quantidade: item.quantidade + 1 } : item )
-    );
-  };
-
-  const decrementarItem = (produtoId) => {
-    setItemCarrinho((index) =>
-      index.map((item) =>
-          item.id === produtoId ? { ...item, quantidade: item.quantidade - 1 } : item ).filter((item) => item.quantidade > 0));
-  };
-
+  
   return (
     <div className="container">
-      {produtos?.map((item, index) => (
-        <div key={index} className="produto">
-          <img src={item.imagem} alt={item.nome} />
-          <h3>{item.nome}</h3>
-          <p>R$ {item.valor.toFixed(2)}</p>
-          <button onClick={() => adicionarAoCarrinho(item)}>Adicionar ao carrinho</button>
+      {produtos?.map((produto) => (
+        <div key={produto.id} className="produto">
+          <img src={produto.imagem} alt={produto.nome} />
+          <h3>{produto.nome}</h3>
+          <p>R$ {produto.valor.toFixed(2)}</p>
+          <button onClick={() => adicionarAoCarrinho(produto)}>Adicionar ao carrinho</button>
         </div>
       ))}
 

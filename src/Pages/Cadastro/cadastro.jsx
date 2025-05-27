@@ -17,7 +17,7 @@ export default function Cadastro() {
 
     const { register } = useAuth();
 
-    const handleCadastro = () => {
+    const cadastro = () => {
         if (nome && nomeUser && cpf && email && senha && sexo && termo && dataNasc) {
             register(nomeUser, senha)
         } else {
@@ -25,7 +25,7 @@ export default function Cadastro() {
         }
     }
 
-    const handleLoginRedireciona = () => {
+    const redireciona = () => {
         window.location.href = '/login';
     }
 
@@ -68,8 +68,8 @@ export default function Cadastro() {
                     </div>
                 </div>
                 <div className="botaoCadastro">
-                    <button onClick={handleCadastro}>Cadastrar</button>
-                    <button onClick={handleLoginRedireciona}>Login</button>
+                    <button onClick={cadastro}>Cadastrar</button>
+                    <button onClick={redireciona}>Login</button>
                 </div>
             </div>
         </div>
