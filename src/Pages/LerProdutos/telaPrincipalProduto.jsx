@@ -14,7 +14,7 @@ export default function TelaPrincipalProduto() {
 
   useEffect(() => {
     api.get('/produtos/ler').then(({ data }) => setProdutos(data)).catch(err => console.error(err));
-  });
+  }, []);
 
   const abreCarrinho = () => setMostraCarrinho(!mostraCarrinho);
   

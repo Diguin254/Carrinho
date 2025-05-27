@@ -19,7 +19,7 @@ export default function App() {
         <DataProvider>
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard/produtosView" replace />} />
-            <Route path="/dashboard" element={<DashBoard />}>
+            <Route path="/dashboard" element={<RequireAuth><DashBoard /></RequireAuth>}>
               <Route path="produtosView" element={<ProdutosView />} />
 
               <Route path="produtos" element={<RequireAuth><LerProdutos /></RequireAuth>} />
