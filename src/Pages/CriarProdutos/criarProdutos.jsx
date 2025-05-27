@@ -14,7 +14,7 @@ export default function CriarProdutos() {
     const criar = async (e) => {
         e.preventDefault();
         try {
-            await api.post('/produtos/criar', { nome, valor: Number(valor), imagem });
+            await api.post('/produtos/criarProdutos', { nome, valor: Number(valor), imagem });
             alert('Produto criado com sucesso!');
             navigate('/produtos/criar');
         } catch (erro) {

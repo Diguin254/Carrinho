@@ -10,7 +10,7 @@ body {
   padding: 40px;
   background: #ff8c00;
   box-sizing: border-box;
-  padding-top: 600px;
+  padding-top: 1250px;
 }
 
 .container-produtos-view h1 {
@@ -70,4 +70,4 @@ body {
 
 .card-preview button:hover {
   transform: translateY(-2px);
-}
+} 

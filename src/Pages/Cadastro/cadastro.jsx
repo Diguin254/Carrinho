@@ -1,11 +1,10 @@
 import { useState } from "react"
 import { useAuth } from "../../Componentes/AuthProvider"
-
+import { useNavigate } from "react-router";
 import fundo from "../Login/black2.jpg"
 import "./cadastro.css";
 
 export default function Cadastro() {
-    const [nome, setNome] = useState("");
     const [nomeUser, setNomeUser] = useState("");
     const [cpf, setCpf] = useState("");
     const [email, setEmail] = useState("");
@@ -16,9 +15,9 @@ export default function Cadastro() {
     const [manter, setManter] = useState(false);
 
     const { register } = useAuth();
-
+    const navigate = useNavigate();
     const cadastro = () => {
-        if (nome && nomeUser && cpf && email && senha && sexo && termo && dataNasc) {
+        if (nomeUser && cpf && email && senha && sexo && termo && dataNasc) {
             register(nomeUser, senha)
         } else {
             alert("Preencha todos os campos obrigatórios");
@@ -26,7 +25,7 @@ export default function Cadastro() {
     }
 
     const redireciona = () => {
-        window.location.href = '/login';
+        navigate('/login');
     }
 
     return (
@@ -34,8 +33,6 @@ export default function Cadastro() {
             <img src={fundo} alt="" />
             <div className="telaCadastro">
                 <div className="telaUsuario">
-                    <label htmlFor="Nome">Nome Completo* </label>
-                    <input type="text" id="Nome" value={nome} onChange={(e) => setNome(e.target.value)} />
                     
                     <label htmlFor="NomeDeUsuario">Nome de usuário*</label>
                     <input type="text" id="NomeDeUsuario" value={nomeUser} onChange={(e) => setNomeUser(e.target.value)} />

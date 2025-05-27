@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import api from "../../Componentes/API/api";
 import { FaCartPlus } from "react-icons/fa";
+import { useNavigate } from "react-router";
 import "./produtosView.css";
 
 export default function ProdutosView() {
   const [produtos, setProdutos] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     api.get("/produtos/ler").then(({ data }) => setProdutos(data)).catch(console.error);
   }, []);
@@ -21,7 +22,7 @@ export default function ProdutosView() {
             <img src={p.imagem} alt={p.nome} />
             <h3>{p.nome}</h3>
             <p>R$ {p.valor.toFixed(2)}</p>
-            <button onClick={() => window.location.href = "/dashboard/produtos"}>
+            <button onClick={() => navigate("produtosView")}>
               <FaCartPlus /> Ver todos
             </button>
           </div>

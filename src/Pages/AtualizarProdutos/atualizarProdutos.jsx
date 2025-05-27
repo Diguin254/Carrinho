@@ -45,6 +45,7 @@ export default function AtualizarProdutos() {
         {lista.map((p) => (
           <option key={p.id} value={p.id}>
             {p.nome}
+            <img src={p.imagem} alt={p.nome} />
           </option>
         ))}
       </select>
