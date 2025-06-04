@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useAuth } from "../../Componentes/AuthProvider"
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import fundo from "../Login/black2.jpg"
 import "./cadastro.css";
 

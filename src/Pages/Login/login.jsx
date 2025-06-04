@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../../Componentes/AuthProvider"
-import { useNavigate, useLocation } from "react-router"
+import { useNavigate, useLocation } from "react-router-dom"
 import fundo from "../Login/black2.jpg";
 import "./login.css";
 
@@ -14,7 +14,7 @@ export default function Login() {
     const { login } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || "/dashboard";
 
     const logar = () => {
         if (!usuario || !senha) {

@@ -1,4 +1,5 @@
-import { Outlet, useNavigate } from "react-router";
+// DashBoard.jsx
+import { Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Componentes/AuthProvider";
 import "./dashBoard.css";
 
@@ -17,24 +18,26 @@ export default function DashBoard() {
 
   return (
     <div className="container-dashboard">
-      <div className="sidebar">
+      <aside className="sidebar">
         <div className="sidebar-header">
           <h1>Painel</h1>
         </div>
-        <div className="sidebar-buttons">
+        <nav className="sidebar-buttons">
           <button onClick={produtos}>Ver Produtos</button>
           <button onClick={() => navigate("atualizarProdutos")}>Atualizar Produtos</button>
           <button onClick={() => navigate("deletarProdutos")}>Deletar Produtos</button>
           <button onClick={() => navigate("criarProdutos")}>Criar Produtos</button>
           <button onClick={() => navigate("produtosView")}>Tela Inicial</button>
-          {autenticado ? (<button onClick={logout}>Sair</button>) : (
-            <button onClick={() => navigate("/login")}>Login</button>
-          )}
-        </div>
-      </div>
-      <div className="main-content">
+          {autenticado
+            ? <button onClick={logout}>Sair</button>
+            : <button onClick={() => navigate("/login")}>Login</button>
+          }
+        </nav>
+      </aside>
+
+      <main className="main-content-dashboard">
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 }
